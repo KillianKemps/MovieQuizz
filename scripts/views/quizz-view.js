@@ -7,9 +7,17 @@ var QuizzListView = Backbone.View.extend({
 
   initialize: function() {
     this.myQuizzCollection = new QuizzCollection();
-    this.myQuizzCollection.fetch();
+    var self = this;
+    this.myQuizzCollection.fetch({
+      success: function(data) {
+        console.log(data);
+        self.render();
+      },
+      error: function(error) {
+        console.log('error: ', error);
+      }
+    });
     console.log('$$$$$$$');
-    this.render();
   },
 
   render: function() {
