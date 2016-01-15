@@ -6,15 +6,19 @@ var QuizzListView = Backbone.View.extend({
   ),
 
   initialize: function() {
-    this.myquizzCollection = new QuizzCollection();
+    this.myQuizzCollection = new QuizzCollection();
+    console.log("hello");
+    this.myQuizzCollection.fetch();
     this.render();
   },
 
   render: function() {
-    var $renderContainer = this.$('.movie-list');
+    var $renderContainer = this.$('.question-area');
+    console.log($renderContainer);
 
     $renderContainer.html(
-      this.templateHandlebars(this.myquizzCollection.toJSON())
+      this.templateHandlebars(this.myQuizzCollection.toJSON())
     );
+    console.log(this.myQuizzCollection.toJSON());
   }
 });
