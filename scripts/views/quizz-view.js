@@ -7,8 +7,8 @@ var QuizzListView = Backbone.View.extend({
 
   initialize: function() {
     this.myQuizzCollection = new QuizzCollection();
-    console.log("hello");
     this.myQuizzCollection.fetch();
+    console.log('$$$$$$$');
     this.render();
   },
 
