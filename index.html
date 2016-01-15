@@ -5,6 +5,32 @@
   <title>MovieQuizz</title>
 </head>
 <body>
+<div id="app">
+
+    <h1>MovieQuizz</h1>
+    <p>Did this person act in this movie ?</p>
+
+  <script id="template-handlebars" type="text/x-handlebars-template">
+
+      {{#each this.question}}
+      <div class="actor">
+        <h2>{{this.name}}</h2>
+        <img src="{{this.image}}" alt="{{this.name}}" />
+      </div>
+
+      <div class="movie">
+        <h2>{{this.title}}</h2>
+        <img src="{{this.poster}}" alt="{{this.title}}" />
+      </div>
+    </div>
+    {{/each}}
+
+  </script>
+
+  <form>
+    <input type="radio" name="answer" value="yes">Yes</ br>
+    <input type="radio" name="answer" value="no">No</ br>
+  </form>
 
   <!-- LIB -->
   <script src="scripts/lib/jquery.min.js"></script>
