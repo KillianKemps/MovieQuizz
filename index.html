@@ -29,9 +29,15 @@
   </script>
 
   <form>
-    <input type="radio" name="answer" value="yes">Yes</ br>
-    <input type="radio" name="answer" value="no">No</ br>
+    <label for="yes">Yes</label>
+    <input type="radio" name="answer" value="yes" id="yes"></ br>
+    <label for="no">No</label>
+    <input type="radio" name="answer" value="no" id="no"></ br>
   </form>
+
+  <a href="/#play">play</a>
+  <a href="/#gameOver">game over</a>
+  <a href="/#">home</a>
 
   <!-- LIB -->
   <script src="scripts/lib/jquery.min.js"></script>
@@ -45,5 +51,6 @@
   <script src="scripts/collections/quizz-collection.js"></script>
   <script src="scripts/views/quizz-view.js"></script>
   <script src="scripts/app.js"></script>
+  <script src="scripts/router/router.js"></script>
 </body>
 </html>
