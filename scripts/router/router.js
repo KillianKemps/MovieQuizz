@@ -1,13 +1,7 @@
-//On déclare un routeur
-
 var AppRouter = Backbone.Router.extend({
 
-  // On les déclare dans le hash routes
-
    routes: {
-   // Route par défaut
     '': 'defaultRoute',
-   // Route #/about
     'play': 'play',
     'gameOver': 'gameOver',
    },
@@ -25,17 +19,15 @@ var AppRouter = Backbone.Router.extend({
    }
 });
 
-// On initialise le routeur
+// Initialize the router
 
 var Router = new AppRouter();
 
-// OBLIGATOIRE !
-
-// Permet de démarrer le routing
+// Mandatory! Start the routing
 
 Backbone.history.start();
 
-// Ecouter le routage
+// Listen the routing
 
 Router.on('route', function(route) {
 
@@ -43,12 +35,10 @@ Router.on('route', function(route) {
 
 });
 
-// Trigger une route à la main
+// Trigger manually a route
 
-Router.navigate('#play', { trigger: true });
+//Router.navigate('#play', { trigger: true });
 
-// Affiche le fragment
-
-// Ici ce sera #about
+// Display the fragment
 
 console.log(Backbone.history.fragment);
