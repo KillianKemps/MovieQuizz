@@ -1,22 +1,29 @@
 var AppRouter = Backbone.Router.extend({
 
-   routes: {
+  routes: {
     '': 'defaultRoute',
     'play': 'play',
     'gameOver': 'gameOver',
-   },
+  },
 
-   defaultRoute: function () {
-     console.log('Route par défaut');
-   },
+  defaultRoute: function () {
+    console.log('Route par défaut');
+    this.loadView(new HomeView())
+  },
 
-   play: function() {
-     console.log('play');
-   },
+  play: function() {
+    console.log('Play route');
+    this.loadView(new QuizzListView())
+  },
 
-   gameOver: function() {
-      console.log('gameOver');
-   }
+  gameOver: function() {
+    console.log('GameOver route');
+  },
+
+  loadView: function(view) {
+    this.view && this.view.remove();
+    this.view = view;
+  }
 });
 
 // Initialize the router
@@ -30,9 +37,7 @@ Backbone.history.start();
 // Listen the routing
 
 Router.on('route', function(route) {
-
- console.log('Lets go to' + route);
-
+  console.log('Lets go to ' + route);
 });
 
 // Trigger manually a route

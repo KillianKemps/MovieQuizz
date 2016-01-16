@@ -1,1 +1,0 @@
-var myApp = new QuizzListView();
