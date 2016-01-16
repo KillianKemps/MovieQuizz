@@ -5,14 +5,18 @@
   <title>MovieQuizz</title>
 </head>
 <body>
-<div id="app">
+  <h1>MovieQuizz</h1>
+  <div id="app">
+  </div>
 
-    <h1>MovieQuizz</h1>
-    <p>Did this person act in this movie ?</p>
-
-    <div class="question-area"></div>
+  <!-- Links to route for development purpose -->
+  <a href="/#play">play</a>
+  <a href="/#gameOver">game over</a>
+  <a href="/#">home</a>
 
   <script id="template-handlebars" type="text/x-handlebars-template">
+
+    <p>Did this person act in this movie ?</p>
 
     {{#each this}}
       <div class="actor">
@@ -26,18 +30,14 @@
       </div>
     {{/each}}
 
+    <form>
+      <label for="yes">Yes</label>
+      <input type="radio" name="answer" value="yes" id="yes"></ br>
+      <label for="no">No</label>
+      <input type="radio" name="answer" value="no" id="no"></ br>
+    </form>
+
   </script>
-
-  <form>
-    <label for="yes">Yes</label>
-    <input type="radio" name="answer" value="yes" id="yes"></ br>
-    <label for="no">No</label>
-    <input type="radio" name="answer" value="no" id="no"></ br>
-  </form>
-
-  <a href="/#play">play</a>
-  <a href="/#gameOver">game over</a>
-  <a href="/#">home</a>
 
   <!-- LIB -->
   <script src="scripts/lib/jquery.min.js"></script>
