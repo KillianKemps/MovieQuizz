@@ -2,9 +2,8 @@ var HomeView = Backbone.View.extend({
   el: '#app',
 
   templateHandlebars: Handlebars.compile(
-    $('#play-template-handlebars').html()
+    $('#home-template-handlebars').html()
   ),
-
   remove: function() {
     $(this.el).empty();
 
@@ -12,9 +11,12 @@ var HomeView = Backbone.View.extend({
   },
 
   initialize: function() {
-    console.log('In view home');
+    this.render();
   },
 
   render: function() {
+    this.$el.html(
+      this.templateHandlebars()
+    );
   }
 });
