@@ -25,7 +25,6 @@
 
     <p>Did this person act in this movie ?</p>
 
-    {{#each this}}
       <div class="actor">
         <h2>{{this.actor.name}}</h2>
         <img src="{{this.actor.image}}" alt="{{this.actor.name}}" />
@@ -35,7 +34,6 @@
         <h2>{{this.movie.title}}</h2>
         <img src="{{this.movie.poster}}" alt="{{this.movie.title}}" />
       </div>
-    {{/each}}
 
     <form>
       <label for="yes">Yes</label>

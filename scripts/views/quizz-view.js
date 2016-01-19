@@ -16,9 +16,14 @@ var QuizzListView = Backbone.View.extend({
     return o;
   },
 
+  stepCounter: function() {
+    this.step += 1;
+  },
+
   initialize: function() {
     console.log('Initialize in quizz view');
     this.myQuizzCollection = new QuizzCollection();
+    this.step = 0;
 
     var self = this;
 
@@ -36,8 +41,9 @@ var QuizzListView = Backbone.View.extend({
   },
 
   render: function() {
+    this.stepCounter();
     this.$el.html(
-      this.templateHandlebars(this.quizzList)
+      this.templateHandlebars(this.quizzList[this.step - 1])
     );
   }
 });
