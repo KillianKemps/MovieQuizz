@@ -2,7 +2,7 @@ var HomeView = Backbone.View.extend({
   el: '#app',
 
   templateHandlebars: Handlebars.compile(
-    $('#template-handlebars').html()
+    $('#play-template-handlebars').html()
   ),
 
   remove: function() {
