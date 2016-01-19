@@ -45,6 +45,14 @@
 
   </script>
 
+  <script id="game-over-template-handlebars" type="text/x-handlebars-template">
+
+    <h2>Too bad! Game over!</h2>
+    <h2>Score: {{this.score}}</h2>
+    <a href="/#play">PLAY AGAIN!</a>
+
+  </script>
+
   <!-- LIB -->
   <script src="scripts/lib/jquery.min.js"></script>
   <script src="scripts/lib/underscore.min.js"></script>
@@ -57,6 +65,7 @@
   <script src="scripts/collections/quizz-collection.js"></script>
   <script src="scripts/views/quizz-view.js"></script>
   <script src="scripts/views/home-view.js"></script>
+  <script src="scripts/views/game-over-view.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/router/router.js"></script>
 </body>

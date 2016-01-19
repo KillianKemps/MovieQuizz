@@ -7,17 +7,15 @@ var AppRouter = Backbone.Router.extend({
   },
 
   defaultRoute: function () {
-    console.log('Route par défaut');
     this.loadView(new HomeView())
   },
 
   play: function() {
-    console.log('Play route');
     this.loadView(new QuizzListView())
   },
 
   gameOver: function() {
-    console.log('GameOver route');
+    this.loadView(new GameOverView())
   },
 
   loadView: function(view) {
