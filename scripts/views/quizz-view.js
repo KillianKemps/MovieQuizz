@@ -30,7 +30,7 @@ var QuizzListView = Backbone.View.extend({
     if((isActorPresent && answer === 'yes') || !isActorPresent && answer === 'no'){
       this.render();
     } else {
-      alert('Game Over!');
+      alert('Game Over! Your score: '+ this.step);
     }
   },
 
