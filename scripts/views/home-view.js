@@ -16,6 +16,7 @@ var HomeView = Backbone.View.extend({
     var score = new ScoreModel();
 
     this.myScoreCollection.add(score);
+    score.save();
 
     this.render();
   },
