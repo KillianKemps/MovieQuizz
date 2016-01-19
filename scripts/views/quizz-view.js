@@ -1,6 +1,10 @@
 var QuizzListView = Backbone.View.extend({
   el: '#app',
 
+  events: {
+    'submit form': 'validateMovie',
+  },
+
   templateHandlebars: Handlebars.compile(
     $('#play-template-handlebars').html()
   ),
@@ -14,6 +18,20 @@ var QuizzListView = Backbone.View.extend({
   shuffleArray: function (o){
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
+  },
+
+  validateMovie: function(event) {
+    // Kill submit event
+    event.preventDefault();
+    var $form = $(event.currentTarget);
+    var answer = $form.find('input:radio[name=answer]:checked').val();
+    var isActorPresent = this.quizzList[this.step].actor.isPresent;
+
+    if((isActorPresent && answer === 'yes') || !isActorPresent && answer === 'no'){
+      this.render();
+    } else {
+      alert('Game Over!');
+    }
   },
 
   stepCounter: function() {
