@@ -45,18 +45,30 @@
 
   </script>
 
+  <script id="game-over-template-handlebars" type="text/x-handlebars-template">
+
+    <h2>Too bad {{this.pseudo}}! Game over!</h2>
+    <h2>Score: {{this.value}}</h2>
+    <a href="/#play">PLAY AGAIN!</a>
+
+  </script>
+
   <!-- LIB -->
   <script src="scripts/lib/jquery.min.js"></script>
   <script src="scripts/lib/underscore.min.js"></script>
   <script src="scripts/lib/handlebars-v4.0.5.js"></script>
   <script src="scripts/lib/backbone.min.js"></script>
+  <script src="scripts/lib/backbone.localStorage-min.js"></script>
   <!-- LIB -->
 
   <!-- Script de notre appli -->
   <script src="scripts/models/quizz-model.js"></script>
+  <script src="scripts/models/score-model.js"></script>
   <script src="scripts/collections/quizz-collection.js"></script>
+  <script src="scripts/collections/score-collection.js"></script>
   <script src="scripts/views/quizz-view.js"></script>
   <script src="scripts/views/home-view.js"></script>
+  <script src="scripts/views/game-over-view.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/router/router.js"></script>
 </body>
