@@ -7,20 +7,39 @@ var AppRouter = Backbone.Router.extend({
   },
 
   defaultRoute: function () {
-    this.loadView(new HomeView())
+    this.view && this.view.remove();
+    if (this.homeView == null) {
+      this.homeView = new HomeView;
+    }
+    else {
+      this.homeView.reset && this.homeView.reset();
+      this.homeView.render();
+    }
+    this.view = this.homeView;
   },
 
   play: function() {
-    this.loadView(new QuizzListView())
+    this.view && this.view.remove();
+    if (this.playView == null) {
+      this.playView = new QuizzListView;
+    }
+    else {
+      this.playView.reset && this.playView.reset();
+      this.playView.render();
+    }
+    this.view = this.playView;
   },
 
   gameOver: function() {
-    this.loadView(new GameOverView())
-  },
-
-  loadView: function(view) {
     this.view && this.view.remove();
-    this.view = view;
+    if (this.gameOverView == null) {
+      this.gameOverView = new GameOverView;
+    }
+    else {
+      this.gameOverView.reset && this.gameOverView.reset();
+      this.gameOverView.render();
+    }
+    this.view = this.gameOverView;
   }
 });
 
@@ -31,16 +50,6 @@ var Router = new AppRouter();
 // Mandatory! Start the routing
 
 Backbone.history.start();
-
-// Listen the routing
-
-Router.on('route', function(route) {
-  console.log('Lets go to ' + route);
-});
-
-// Trigger manually a route
-
-//Router.navigate('#play', { trigger: true });
 
 // Display the fragment
 

@@ -4,10 +4,17 @@ var GameOverView = Backbone.View.extend({
   templateHandlebars: Handlebars.compile(
     $('#game-over-template-handlebars').html()
   ),
+
   remove: function() {
-    $(this.el).empty();
+    this.$el.empty();
 
     return this;
+  },
+
+  reset: function() {
+    this.myScoreCollection.fetch();
+    this.score = this.myScoreCollection.toJSON();
+    this.score = this.score[this.score.length - 1];
   },
 
   initialize: function() {
