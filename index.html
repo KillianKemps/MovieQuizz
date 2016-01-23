@@ -3,55 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <title>MovieQuizz</title>
+
+  <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <h1>MovieQuizz</h1>
-  <div id="app">
+  <h1 class="col-sm-12 text-center text-uppercase">MovieQuizz</h1>
+  <div id="app" class="container-fluid">
   </div>
-
-  <!-- Links to route for development purpose -->
-  <a href="/#play">play</a>
-  <a href="/#gameOver">game over</a>
-  <a href="/#">home</a>
-
   <script id="home-template-handlebars" type="text/x-handlebars-template">
-
-    <h2>Welcome to MovieQuizz!</h2>
-    <a href="/#play">PLAY!</a>
+   <div id="home-template">
+     <h2 class="text-center">Welcome to MovieQuizz!</h2>
+     <a href="/#play" class="col-sm-4 col-sm-offset-4 text-center btn btn-success"
+     role="button">PLAY!</a>
+   </div>
 
   </script>
 
   <script id="play-template-handlebars" type="text/x-handlebars-template">
 
-    <p>Did this person act in this movie ?</p>
+    <h2 class="text-center">Has {{this.actor.name}} play in {{this.movie.title}} ?</h2>
 
-      <div class="actor">
-        <h2>{{this.actor.name}}</h2>
+      <div class="actor col-sm-4 col-sm-offset-1 text-center">
+        <!-- <h2>{{this.actor.name}}</h2> -->
         <img src="{{this.actor.image}}" alt="{{this.actor.name}}" />
       </div>
 
-      <div class="movie">
-        <h2>{{this.movie.title}}</h2>
+      <div class="movie col-sm-4 col-sm-offset-2 text-center">
+        <!-- <h2>{{this.movie.title}}</h2> -->
         <img src="{{this.movie.poster}}" alt="{{this.movie.title}}" />
       </div>
 
-    <form>
-      <label for="yes">Yes</label>
-      <input type="radio" name="answer" value="yes" id="yes"></ br>
-      <label for="no">No</label>
-      <input type="radio" name="answer" value="no" id="no"></ br>
-      <input type="submit">
+    <form class="form-inline col-sm-8 col-sm-offset-2 text-center">
+      <label for="yes">Sure yeah!</label>
+      <input type="radio" name="answer" value="yes" id="yes">
+      <label for="no">Hell no!</label>
+      <input type="radio" name="answer" value="no" id="no"><br />
+      <input type="submit" class="btn btn-default" value="Give my that point!">
     </form>
 
   </script>
 
   <script id="game-over-template-handlebars" type="text/x-handlebars-template">
 
-    <h2>Too bad {{this.pseudo}}! Game over!</h2>
-    <h2>Score: {{this.value}}</h2>
-    <a href="/#play">PLAY AGAIN!</a>
+    <h2 class="text-center">Too bad {{this.pseudo}}! Game over!</h2>
+    <h2 class="text-center">Score: {{this.value}}</h2>
+    <a href="/#play" class="col-sm-4 col-sm-offset-4 text-center btn btn-success"
+    role="button">PLAY AGAIN!</a>
 
   </script>
+
+  <!-- Links to route for development purpose -->
+  <div class="useless-links">
+    <a href="/#play">play</a>
+    <a href="/#gameOver">game over</a>
+    <a href="/#">home</a>
+  </div>
 
   <!-- LIB -->
   <script src="scripts/lib/jquery.min.js"></script>
@@ -71,5 +79,6 @@
   <script src="scripts/views/game-over-view.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/router/router.js"></script>
+  <script src="scripts/js/bootstrap.min.js"></script>
 </body>
 </html>
