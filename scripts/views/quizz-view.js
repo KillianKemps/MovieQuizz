@@ -15,6 +15,11 @@ var QuizzListView = Backbone.View.extend({
     return this;
   },
 
+  reset: function() {
+    this.step = 0;
+    this.quizzList = this.shuffleArray(this.quizzList);
+  },
+
   shuffleArray: function (o){
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
@@ -28,9 +33,18 @@ var QuizzListView = Backbone.View.extend({
     var isActorPresent = this.quizzList[this.step].actor.isPresent;
 
     if((isActorPresent && answer === 'yes') || !isActorPresent && answer === 'no'){
+      this.stepCounter();
       this.render();
     } else {
-      alert('Game Over! Your score: '+ this.step);
+      var score = new ScoreModel({
+        value: this.step
+      });
+
+      this.myScoreCollection.add(score);
+      score.save();
+
+      Router.navigate('#gameOver', { trigger: true });
+
     }
   },
 
@@ -41,6 +55,7 @@ var QuizzListView = Backbone.View.extend({
   initialize: function() {
     console.log('Initialize in quizz view');
     this.myQuizzCollection = new QuizzCollection();
+    this.myScoreCollection = new ScoreCollection();
     this.step = 0;
 
     var self = this;
@@ -59,9 +74,8 @@ var QuizzListView = Backbone.View.extend({
   },
 
   render: function() {
-    this.stepCounter();
     this.$el.html(
-      this.templateHandlebars(this.quizzList[this.step - 1])
+      this.templateHandlebars(this.quizzList[this.step])
     );
   }
 });
