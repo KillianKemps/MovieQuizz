@@ -1,6 +1,6 @@
 var ScoreModel = Backbone.Model.extend({
   defaults: {
-    pseudo: 'kiki',
+    pseudo: '',
     value: 0
   }
 });

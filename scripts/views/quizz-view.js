@@ -32,17 +32,18 @@ var QuizzListView = Backbone.View.extend({
     var answer = $form.find('input:radio[name=answer]:checked').val();
     var isActorPresent = this.quizzList[this.step].actor.isPresent;
 
+
+
     if((isActorPresent && answer === 'yes') || !isActorPresent && answer === 'no'){
       this.stepCounter();
       this.render();
     } else {
-      var score = new ScoreModel({
+      this.myScoreCollection.fetch();
+      var lastScore = this.myScoreCollection.at(this.myScoreCollection.length - 1);
+      lastScore.set({
         value: this.step
       });
-
-      this.myScoreCollection.add(score);
-      score.save();
-
+      lastScore.save();
       Router.navigate('#gameOver', { trigger: true });
 
     }
