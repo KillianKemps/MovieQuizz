@@ -50,7 +50,3 @@ var Router = new AppRouter();
 // Mandatory! Start the routing
 
 Backbone.history.start();
-
-// Display the fragment
-
-console.log(Backbone.history.fragment);

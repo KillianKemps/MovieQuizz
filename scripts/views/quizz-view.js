@@ -54,7 +54,6 @@ var QuizzListView = Backbone.View.extend({
   },
 
   initialize: function() {
-    console.log('Initialize in quizz view');
     this.myQuizzCollection = new QuizzCollection();
     this.myScoreCollection = new ScoreCollection();
     this.step = 0;
